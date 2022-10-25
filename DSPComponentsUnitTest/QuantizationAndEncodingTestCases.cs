@@ -8,7 +8,7 @@ namespace DSPComponentsUnitTest
     [TestClass]
     public class QuantizationAndEncodingTestCases
     {
-        //bits = 3
+        ////bits = 3
         [TestMethod]
         public void QuantizationAndEncodingTestMethod1()
         {
