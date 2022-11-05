@@ -19,12 +19,14 @@ namespace DSPAlgorithms.Algorithms
         public override void Run()
         {
             samples=new List<float>();
-            for (int i = 0; i <SamplingFrequency; i++)
+            for (int i = 0; i < SamplingFrequency; i++)
             {
-                double tmp = (type == "sin" ? A * Math.Sin(2 * Math.PI * i * (AnalogFrequency / SamplingFrequency) + PhaseShift) :
-                                              A * Math.Cos(2 * Math.PI * i * (AnalogFrequency / SamplingFrequency) + PhaseShift));
-                samples.Add((float)tmp);
+                if (type == "sin")
 
+                    samples.Add((float)(A * Math.Sin(2 * Math.PI * i * (AnalogFrequency / SamplingFrequency) + PhaseShift)));
+                else
+
+                    samples.Add((float)(A * Math.Cos(2 * Math.PI * i * (AnalogFrequency / SamplingFrequency) + PhaseShift)));
             }
             
         }

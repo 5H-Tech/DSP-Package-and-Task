@@ -11,6 +11,7 @@ namespace DSPComponentsUnitTest
         [TestMethod]
         public void DFTTestMethod1()
         {
+           
             DiscreteFourierTransform DFT = new DiscreteFourierTransform();
             // test case 2
             List<float> Samples = new List<float> { 1, 3, 5, 7, 9, 11, 13, 15 };
