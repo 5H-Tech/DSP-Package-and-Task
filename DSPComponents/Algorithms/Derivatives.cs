@@ -16,8 +16,18 @@ namespace DSPAlgorithms.Algorithms
 
         public override void Run()
         {
+            FirstDerivative = new Signal(new List<float>(), false);
+            SecondDerivative = new Signal(new List<float>(), false);
 
-           throw new NotImplementedException();
+            for (int i = 1; i < InputSignal.Samples.Count; i++)
+            {
+                FirstDerivative.Samples.Add(InputSignal.Samples[i] - InputSignal.Samples[i - 1]);
+                if (i + 1 <= InputSignal.Samples.Count - 1)
+                {
+                    SecondDerivative.Samples.Add(InputSignal.Samples[i + 1] - (2 * InputSignal.Samples[i]) - InputSignal.Samples[i - 1]);
+                }
+            }
+
         }
     }
 }
