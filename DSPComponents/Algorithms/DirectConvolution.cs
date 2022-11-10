@@ -23,11 +23,7 @@ namespace DSPAlgorithms.Algorithms
             {
                 start = InputSignal1.SamplesIndices[0] + InputSignal2.SamplesIndices[0];
             }
-            //throw new NotImplementedException();
             OutputConvolvedSignal = new Signal(new List<float>(),new List<int>(),false);
-           
-           //InputSignal2.Samples.Reverse();
-
             for (int i = 0; i < (InputSignal1.Samples.Count+InputSignal2.Samples.Count)-1; i++)
             {
                 float sum = 0f;
@@ -44,13 +40,20 @@ namespace DSPAlgorithms.Algorithms
                 start++;
 
             }
-            if (OutputConvolvedSignal.Samples[OutputConvolvedSignal.Samples.Count - 1] == 0)
-            {
-                OutputConvolvedSignal.Samples.RemoveAt(OutputConvolvedSignal.Samples.Count - 1);
-                OutputConvolvedSignal.SamplesIndices.RemoveAt(OutputConvolvedSignal.SamplesIndices.Count - 1);
+           
 
+            for (int i = OutputConvolvedSignal.Samples.Count - 1; i >= 0; i--)
+            {
+                if (OutputConvolvedSignal.Samples[i] == 0)
+                {
+                    OutputConvolvedSignal.Samples.RemoveAt(i);
+                    OutputConvolvedSignal.SamplesIndices.RemoveAt(i);
+                }
+                else
+                {
+                    break;
+                }
             }
-            
         }
     }
 }
