@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
@@ -30,88 +31,88 @@ namespace DSPComponentsUnitTest
             Assert.IsTrue(UnitTestUtitlities.SignalsSamplesIndicesAreEqual(expectedOutputSignal, actualOutputSignal));
         }
 
-        [TestMethod]
-        public void ShiftLeftTestMethod1()
-        {
-            s.InputSignal = inputSignal;
-            s.ShiftingValue = 500;
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Shift_Plus500.ds");
-            s.Run();
-            actualOutputSignal = s.OutputShiftedSignal;
+        //[TestMethod]
+        //public void ShiftLeftTestMethod1()
+        //{
+        //    s.InputSignal = inputSignal;
+        //    s.ShiftingValue = 500;
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Shift_Plus500.ds");
+        //    s.Run();
+        //    actualOutputSignal = s.OutputShiftedSignal;
  
-        }
+        //}
 
-        [TestMethod]
-        public void ShiftingRightTestMethod2()
-        {
-            s.InputSignal = inputSignal;
-            s.ShiftingValue = -500;
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Shift_Minus500.ds");
-            s.Run();
-            actualOutputSignal = s.OutputShiftedSignal;
+        //[TestMethod]
+        //public void ShiftingRightTestMethod2()
+        //{
+        //    s.InputSignal = inputSignal;
+        //    s.ShiftingValue = -500;
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Shift_Minus500.ds");
+        //    s.Run();
+        //    actualOutputSignal = s.OutputShiftedSignal;
          
-        }
+        //}
        
-        [TestMethod]
-        public void FoldingTestMethod3()
-        {
-            f.InputSignal = inputSignal;
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold.ds");
-            f.Run();
-            actualOutputSignal = f.OutputFoldedSignal;
-        }
+        //[TestMethod]
+        //public void FoldingTestMethod3()
+        //{
+        //    f.InputSignal = inputSignal;
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold.ds");
+        //    f.Run();
+        //    actualOutputSignal = f.OutputFoldedSignal;
+        //}
 
-        [TestMethod]
-        public void FoldingAndShiftRightTestMethod4()
-        {
-            s.ShiftingValue = 500;
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
-            f.InputSignal = inputSignal;
-            f.Run();
-            s.InputSignal = f.OutputFoldedSignal;
-            s.Run();
-            actualOutputSignal = s.OutputShiftedSignal;
-        }
+        //[TestMethod]
+        //public void FoldingAndShiftRightTestMethod4()
+        //{
+        //    s.ShiftingValue = 500;
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
+        //    f.InputSignal = inputSignal;
+        //    f.Run();
+        //    s.InputSignal = f.OutputFoldedSignal;
+        //    s.Run();
+        //    actualOutputSignal = s.OutputShiftedSignal;
+        //}
 
-        [TestMethod]
-        public void FoldingAndShiftLeftTestMethod5()
-        {
-            s.ShiftingValue = -500;
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
-            f.InputSignal = inputSignal;
-            f.Run();
-            s.InputSignal = f.OutputFoldedSignal;
-            s.Run();
-            actualOutputSignal = s.OutputShiftedSignal;
-        }
+        //[TestMethod]
+        //public void FoldingAndShiftLeftTestMethod5()
+        //{
+        //    s.ShiftingValue = -500;
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
+        //    f.InputSignal = inputSignal;
+        //    f.Run();
+        //    s.InputSignal = f.OutputFoldedSignal;
+        //    s.Run();
+        //    actualOutputSignal = s.OutputShiftedSignal;
+        //}
 
-        [TestMethod]
-        public void ShiftRightThenFoldingTestMethod6()
-        {
-            s.ShiftingValue = -500;
-            //expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
-            s.InputSignal = inputSignal;
-            s.Run();
-            f.InputSignal = s.OutputShiftedSignal;
-            f.Run();
-            actualOutputSignal = f.OutputFoldedSignal;
+        //[TestMethod]
+        //public void ShiftRightThenFoldingTestMethod6()
+        //{
+        //    s.ShiftingValue = -500;
+        //    //expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
+        //    s.InputSignal = inputSignal;
+        //    s.Run();
+        //    f.InputSignal = s.OutputShiftedSignal;
+        //    f.Run();
+        //    actualOutputSignal = f.OutputFoldedSignal;
             
-        }
+        //}
 
-        [TestMethod]
-        public void ShiftLeftThenFoldingTestMethod7()
-        {
-            s.ShiftingValue = 500;
-            //expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
-            expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
-            s.InputSignal = inputSignal;
-            s.Run();
-            f.InputSignal = s.OutputShiftedSignal;
-            f.Run();
-            actualOutputSignal = f.OutputFoldedSignal;
+        //[TestMethod]
+        //public void ShiftLeftThenFoldingTestMethod7()
+        //{
+        //    s.ShiftingValue = 500;
+        //    //expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Minus500.ds");
+        //    expectedOutputSignal = UnitTestUtitlities.LoadSignal("TestingSignals/Output_Fold_Plus500.ds");
+        //    s.InputSignal = inputSignal;
+        //    s.Run();
+        //    f.InputSignal = s.OutputShiftedSignal;
+        //    f.Run();
+        //    actualOutputSignal = f.OutputFoldedSignal;
            
-        }
+        //}
         
         [TestMethod]
         public void FoldingShiftRightFoldingShiftLeftTestMethod8()
