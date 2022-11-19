@@ -16,22 +16,23 @@ namespace DSPAlgorithms.Algorithms
         public override void Run()
         {
             OutputShiftedSignal = InputSignal;
-            if (InputSignal == Folder.lastOutputFoldedSignal && Folder.folded == 1 )
+            if (!InputSignal.Folded)
             {
+                
                 for (int i = 0; i < InputSignal.Samples.Count; i++)
                 {
-                    OutputShiftedSignal.SamplesIndices[i] = InputSignal.SamplesIndices[i] + ShiftingValue;
+                    OutputShiftedSignal.SamplesIndices[i]=(InputSignal.SamplesIndices[i] - ShiftingValue);
                 }
             }
             else
             {
                 for (int i = 0; i < InputSignal.Samples.Count; i++)
                 {
-                    OutputShiftedSignal.SamplesIndices[i] = InputSignal.SamplesIndices[i] - ShiftingValue;
+                    OutputShiftedSignal.SamplesIndices[i]=( InputSignal.SamplesIndices[i] + ShiftingValue);
                     Console.WriteLine(OutputShiftedSignal.SamplesIndices[i] + "   " + OutputShiftedSignal.Samples[i]);
                 }
             }
-        
+
         }
     }
 }

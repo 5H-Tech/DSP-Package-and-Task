@@ -14,6 +14,8 @@ namespace DSPAlgorithms.DataStructures
         public List<float> FrequenciesAmplitudes { get; set; }
         public List<float> FrequenciesPhaseShifts { get; set; }
         public bool Periodic { get; set; }
+        public bool Folded { get; set; }
+
 
         public Signal(List<float> _SignalSamples, bool _periodic)
         {
@@ -29,6 +31,7 @@ namespace DSPAlgorithms.DataStructures
             Samples = _SignalSamples;
             Periodic = _periodic;
             SamplesIndices = _SignalIndixes;
+
         }
         public Signal(bool _periodic, List<float> _SignalFrquencies, List<float> _SignalFrequenciesAmplitudes, List<float> _SignalFrequenciesPhaseShifts)
         {
@@ -36,6 +39,7 @@ namespace DSPAlgorithms.DataStructures
             Frequencies = _SignalFrquencies;
             FrequenciesAmplitudes = _SignalFrequenciesAmplitudes;
             FrequenciesPhaseShifts = _SignalFrequenciesPhaseShifts;
+
         }
         public Signal(List<float> _SignalSamples, bool _periodic, List<float> _SignalFrequencies, List<float> _SignalFrequenciesAmplitudes, List<float> _SignalFrequenciesPhaseShifts)
         {
@@ -49,6 +53,7 @@ namespace DSPAlgorithms.DataStructures
             Frequencies = _SignalFrequencies;
             FrequenciesAmplitudes = _SignalFrequenciesAmplitudes;
             FrequenciesPhaseShifts = _SignalFrequenciesPhaseShifts;
+
         }
         public Signal(List<float> _SignalSamples, List<int> _SignalIndixes, bool _periodic, List<float> _SignalFrequencies, List<float> _SignalFrequenciesAmplitudes, List<float> _SignalFrequenciesPhaseShifts)
         {
@@ -58,6 +63,7 @@ namespace DSPAlgorithms.DataStructures
             Frequencies = _SignalFrequencies;
             FrequenciesAmplitudes = _SignalFrequenciesAmplitudes;
             FrequenciesPhaseShifts = _SignalFrequenciesPhaseShifts;
+
         }
     }
 }
