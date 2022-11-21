@@ -18,7 +18,7 @@ namespace DSPAlgorithms.Algorithms
             // Diclaring
             OutputAverageSignal = new Signal (new List<float>(),false);
 
-            int padding = (InputWindowSize - 1 )/ 2;
+            
 
             for (int i = 0; i < InputSignal.Samples.Count - (InputWindowSize -1); i++)
             {

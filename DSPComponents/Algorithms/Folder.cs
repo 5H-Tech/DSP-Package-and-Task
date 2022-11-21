@@ -28,21 +28,6 @@ namespace DSPAlgorithms.Algorithms
             {
                 OutputFoldedSignal.SamplesIndices[i] *= -1;
             }
-            //for (int i = n - 1; i >= 0; i--)
-            //{
-            //    OutputFoldedSignal.Samples.Add(InputSignal.Samples[i]);
-            //}
-           
-            //if(InputSignal == lastOutputFoldedSignal)
-            //{
-            //    folded = folded * -1;
-            //}
-            //else
-            //{
-            //    lastOutputFoldedSignal = OutputFoldedSignal;
-               
-            //    folded = 1;
-            //}
            
         }
     }
