@@ -40,8 +40,6 @@ namespace DSPAlgorithms.Algorithms
                 start++;
 
             }
-           
-
             for (int i = OutputConvolvedSignal.Samples.Count - 1; i >= 0; i--)
             {
                 if (OutputConvolvedSignal.Samples[i] == 0)
