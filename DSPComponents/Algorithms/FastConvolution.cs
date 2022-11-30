@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DSPAlgorithms.DataStructures;
+using System.Numerics;
 
 namespace DSPAlgorithms.Algorithms
 {
@@ -18,40 +19,59 @@ namespace DSPAlgorithms.Algorithms
         /// </summary>
         public override void Run()
         {
-            int start = 0;
-            if (InputSignal1.SamplesIndices.Count != 0 && InputSignal2.SamplesIndices.Count != 0)
-            {
-                start = InputSignal1.SamplesIndices[0] + InputSignal2.SamplesIndices[0];
-            }
-            OutputConvolvedSignal = new Signal(new List<float>(), new List<int>(), false);
-            for (int i = 0; i < (InputSignal1.Samples.Count + InputSignal2.Samples.Count) - 1; i++)
-            {
-                float sum = 0f;
-                for (int j = 0; j < InputSignal2.Samples.Count; j++)
-                {
-                    if (i - j >= 0 && i - j < InputSignal1.Samples.Count)
-                    {
-                        sum += InputSignal1.Samples[i - j] * InputSignal2.Samples[j];
-                    }
+            int in1_cout = InputSignal1.Samples.Count;
+            int in2_cout = InputSignal2.Samples.Count;
 
-                }
-                OutputConvolvedSignal.Samples.Add(sum);
-                OutputConvolvedSignal.SamplesIndices.Add(start);
-                start++;
-
-            }
-            for (int i = OutputConvolvedSignal.Samples.Count - 1; i >= 0; i--)
+            int res_count = in1_cout + in2_cout - 1;
+            for (int i = 0; i < res_count-in1_cout; i++)
             {
-                if (OutputConvolvedSignal.Samples[i] == 0)
-                {
-                    OutputConvolvedSignal.Samples.RemoveAt(i);
-                    OutputConvolvedSignal.SamplesIndices.RemoveAt(i);
-                }
-                else
-                {
-                    break;
-                }
+                InputSignal1.Samples.Add(0);
             }
+            for (int i = 0; i < res_count-in2_cout; i++)
+            {
+                InputSignal2.Samples.Add(0);
+            }
+
+            DiscreteFourierTransform in1_dft = new DiscreteFourierTransform();
+            in1_dft.InputTimeDomainSignal = InputSignal1;
+            in1_dft.Run();
+            Signal transformedInput1 = in1_dft.OutputFreqDomainSignal;
+
+            DiscreteFourierTransform in2_dft = new DiscreteFourierTransform();
+            in2_dft.InputTimeDomainSignal = InputSignal2;
+            in2_dft.Run();
+            Signal transformedInput2 = in2_dft.OutputFreqDomainSignal;
+
+
+            List<float> amp = new List<float>();
+            List<float> phas = new List<float>();
+
+            for (int i = 0; i < res_count; i++)
+            {
+                Complex tmp_in1 = Complex.FromPolarCoordinates(transformedInput1.FrequenciesAmplitudes[i], transformedInput1.FrequenciesPhaseShifts[i]);
+                Complex tmp_in2 = Complex.FromPolarCoordinates(transformedInput2.FrequenciesAmplitudes[i], transformedInput2.FrequenciesPhaseShifts[i]);
+                Complex tmp_res = tmp_in1 * tmp_in2;
+                amp.Add((float)tmp_res.Magnitude);
+                phas.Add((float)tmp_res.Phase);
+            }
+
+            Signal res_friq_domain = new Signal(new List<float>(), false);
+
+            res_friq_domain.FrequenciesPhaseShifts = phas;
+            res_friq_domain.FrequenciesAmplitudes = amp;
+
+            InverseDiscreteFourierTransform idft = new InverseDiscreteFourierTransform();
+            idft.InputFreqDomainSignal = res_friq_domain;
+            idft.Run();
+            OutputConvolvedSignal = new Signal(new List<float>(), false);
+            for (int i = 0; i < idft.OutputTimeDomainSignal.Samples.Count; i++)
+            {
+                OutputConvolvedSignal.Samples.Add((float)Math.Round(idft.OutputTimeDomainSignal.Samples[i], 1));
+            }
+            //OutputConvolvedSignal = idft.OutputTimeDomainSignal;
+
+
+
         }
     }
 }

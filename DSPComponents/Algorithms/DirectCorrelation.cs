@@ -64,7 +64,6 @@ namespace DSPAlgorithms.Algorithms
                                 sum += signal1_samples_copy[j] * signal1_samples[j];
                             }
                             signal1_samples_copy[signal1_samples_copy.Count - 1] = first_element;
-                            sum += signal1_samples_copy[signal1_samples_copy.Count - 1] * signal1_samples[signal1_samples.Count - 1];
                         }
                         else
                         {
