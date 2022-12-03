@@ -68,10 +68,6 @@ namespace DSPAlgorithms.Algorithms
             {
                 OutputConvolvedSignal.Samples.Add((float)Math.Round(idft.OutputTimeDomainSignal.Samples[i], 1));
             }
-            //OutputConvolvedSignal = idft.OutputTimeDomainSignal;
-
-
-
         }
     }
 }
