@@ -18,7 +18,9 @@ namespace DSPAlgorithms.Algorithms
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            InverseDiscreteFourierTransform idft = new InverseDiscreteFourierTransform();
+            idft.InputFreqDomainSignal = InputFreqDomainSignal;
+            OutputTimeDomainSignal = idft.OutputTimeDomainSignal;
         }
     }
 }
