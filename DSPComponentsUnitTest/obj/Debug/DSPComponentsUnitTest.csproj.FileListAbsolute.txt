@@ -121,4 +121,7 @@ C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\bin\De
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\bin\Debug\DSPComponents.pdb
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.dll
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.pdb
-C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.csproj.AssemblyReference.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.csproj.CoreCompileInputs.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPComponentsUnitTest\obj\Debug\DSPComponentsUnitTest.csproj.CopyComplete

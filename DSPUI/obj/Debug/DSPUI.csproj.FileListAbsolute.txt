@@ -114,4 +114,6 @@ C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.Compon
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.DSPToolbox.resources
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.Properties.Resources.resources
 C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.csproj.GenerateResource.Cache
-C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.csprojResolveAssemblyReference.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.csproj.AssemblyReference.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.csproj.CoreCompileInputs.cache
+C:\Users\hadi\Documents\GitHub\DSP-Package-and-Task\DSPUI\obj\Debug\DSPUI.csproj.CopyComplete

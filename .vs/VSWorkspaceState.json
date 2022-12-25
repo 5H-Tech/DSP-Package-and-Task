@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\DSPComponents",
+    "\\DSPComponentsUnitTest",
     "\\DSPComponents\\Algorithms"
   ],
-  "SelectedNode": "\\DSPComponents\\Algorithms\\DCT.cs",
+  "SelectedNode": "\\DSPComponents\\Algorithms\\FIR.cs",
   "PreviewInSolutionExplorer": false
 }

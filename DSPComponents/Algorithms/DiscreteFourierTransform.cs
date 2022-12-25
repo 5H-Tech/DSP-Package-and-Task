@@ -32,6 +32,7 @@ namespace DSPAlgorithms.Algorithms
                 }
 
                 amplitudes.Add((float)Math.Sqrt(real * real + imagen * imagen));
+                
                 phase.Add((float)Math.Atan2(imagen, real));
             }
             OutputFreqDomainSignal.FrequenciesAmplitudes = amplitudes;
