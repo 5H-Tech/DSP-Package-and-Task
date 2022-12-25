@@ -26,6 +26,11 @@ namespace DSPAlgorithms.Algorithms
                 float res = (((sampl-oldMin) / oldRange) * newRange)+InputMinRange;
                 OutputNormalizedSignal.Samples.Add(res);
             }
+
+            for (int i = 0; i < InputSignal.Samples.Count; i++)
+            {
+                OutputNormalizedSignal.SamplesIndices.Add(i);
+            }
         }
     }
 }

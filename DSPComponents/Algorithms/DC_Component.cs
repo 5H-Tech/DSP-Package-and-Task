@@ -19,8 +19,13 @@ namespace DSPAlgorithms.Algorithms
             foreach (var item in InputSignal.Samples)
             {
                 OutputSignal.Samples.Add(item - mean);
+                
             }
+            for (int i = 0; i < InputSignal.Samples.Count; i++)
+            {
 
+                OutputSignal.SamplesIndices.Add(i);
+            }
 
         }
     }

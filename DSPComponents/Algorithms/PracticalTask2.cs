@@ -95,7 +95,8 @@ namespace DSPAlgorithms.Algorithms
             dft.InputSamplingFrequency = Fs;
             dft.Run();
             OutputFreqDomainSignal = dft.OutputFreqDomainSignal;
-            saveSignal("OutputFreqDomainSignal.txt", OutputFreqDomainSignal);
+            saveSignal("OutputFreqDomainSignal.txt", dft.OutputFreqDomainSignal);
+            
             #endregion
         }
 
@@ -162,11 +163,26 @@ namespace DSPAlgorithms.Algorithms
             FileStream fParameter = new FileStream(dirParameter+fileName, FileMode.Create, FileAccess.Write);
             StreamWriter m_WriterParameter = new StreamWriter(fParameter);
             m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
-            for (int i = 0; i < signal.Samples.Count; i++)
+            if(fileName== "OutputFreqDomainSignal.txt")
             {
-                m_WriterParameter.WriteLine(signal.Samples[i]);
+                m_WriterParameter.WriteLine(1);
+                m_WriterParameter.WriteLine(0);
+                m_WriterParameter.WriteLine(signal.Frequencies.Count);
+                for (int i = 0; i < signal.Frequencies.Count; i++)
+                {
+                    m_WriterParameter.WriteLine(signal.Frequencies[i]+" " + signal.FrequenciesAmplitudes[i]+" " + signal.FrequenciesPhaseShifts[i]);                 
+                }
             }
-           
+            else
+            {
+                m_WriterParameter.WriteLine(0);
+                m_WriterParameter.WriteLine(0);
+                m_WriterParameter.WriteLine(signal.Samples.Count);
+                for (int i = 0; i < signal.Samples.Count; i++)
+                {
+                    m_WriterParameter.WriteLine(signal.SamplesIndices[i]+" "+ signal.Samples[i]);
+                }
+            }         
             m_WriterParameter.Flush();
             m_WriterParameter.Close();
         }
